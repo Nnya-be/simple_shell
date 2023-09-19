@@ -28,6 +28,14 @@ extern char **environ;
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
 
+/* 1 if using system getline() */
+#define USE_GETLINE 0
+#define USE_STRTOK 0
+
+#define HIST_FILE	".simple_shell_history"
+#define HIST_MAX	4096
+
+
 /**
  * struct liststr - singly linked list
  * @num: the number field
@@ -214,4 +222,18 @@ int populate_env_list(info_t *);
 char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
+
+/*list_ops.c*/
+size_t list_len(const list_t *);
+char **list_to_strings(list_t *);
+size_t print_list(const list_t *);
+list_t *node_starts_with(list_t *, char *, char);
+ssize_t get_node_index(list_t *, list_t *);
+
+/*str util.c*/
+int is_interactive_shell(info_t *);
+int is_delimiter(char, char *);
+int is_alphabetic(int);
+int string_to_integer(char *);
+
 #endif  /* SHELL_H */
