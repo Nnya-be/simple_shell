@@ -4,7 +4,7 @@
  *@s : the string to be passed in
  *Return: length of string
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 int length = 0;
 while (*s != '\0')

@@ -15,9 +15,9 @@ typedef struct Node
 	struct Node *next_node;
 } path_node;
 struct Node *path_link(void);
-
+extern char **environ;
 /* The Part of String Manipulations */
-int _strlen(char *);
+int _strlen(const char *);
 char *_strchr(char *, char);
 char *_strncpy(char *, char *, int);
 int _strncmp(const char *, const char *, size_t);
