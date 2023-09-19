@@ -166,6 +166,52 @@ int bfree(void **ptr);
 /* main.c */
 int hsh(info_t *info, char **av);
 
+/*LInked lists.c*/
+list_t *add_node(list_t **, const char *, int);
+list_t *add_node_end(list_t **, const char *, int);
+size_t print_list_str(const list_t *);
+int delete_node_at_index(list_t **, unsigned int);
+void free_list(list_t **);
 
+/*Alias functions.c*/
+int _myhistory(info_t *);
+int unset_alias(info_t *, char *);
+int set_alias(info_t *, char *);
+int print_alias(list_t *);
+int _myalias(info_t *);
 
+/*builtin_func.c*/
+int _myexit(info_t *);
+int _mycd(info_t *);
+int _myhelp(info_t *);
+
+/*input_handlers.c*/
+ssize_t input_buf(info_t *, char **, size_t *);
+ssize_t get_input(info_t *);
+ssize_t read_buf(info_t *, char *, size_t *);
+int _getline(info_t *, char **, size_t *);
+void sigintHandler(__attribute__((unused))int sig_num);
+
+/*hist.c*/
+char *get_history_file(info_t *);
+int write_history(info_t *);
+int read_history(info_t *);
+int build_history_list(info_t *,char *, int);
+int renumber_history(info_t *);
+/*info_utilities.c*/
+void clear_info(info_t *);
+void set_info(info_t *, char **);
+void free_info(info_t *, int);
+
+/*env_cmds.c*/
+int _myenv(info_t *);
+char *_getenv(info_t *, const char *);
+int _mysetenv(info_t *);
+int _myunsetenv(info_t *);
+int populate_env_list(info_t *);
+
+/*environment_helpers.c*/
+char **get_environ(info_t *);
+int _unsetenv(info_t *, char *);
+int _setenv(info_t *, char *, char *);
 #endif  /* SHELL_H */
