@@ -204,7 +204,7 @@ void sigintHandler(__attribute__((unused))int sig_num);
 char *get_history_file(info_t *);
 int write_history(info_t *);
 int read_history(info_t *);
-int build_history_list(info_t *,char *, int);
+int build_history_list(info_t *, char *, int);
 int renumber_history(info_t *);
 /*info_utilities.c*/
 void clear_info(info_t *);
